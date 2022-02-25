@@ -1,0 +1,24 @@
+HTTP-HyperText Transfer Protocal
+URL-Uniform Resource Locator: http:// (protocal) umich.edu (host)/ main.html (document) invent for web to retrieve document
+HTTP asks cilent first request, then send back the head response data and the document
+
+Network socket : like a phone call on the Internet: connect - talk - disconnect
+TCP connection/ socket
+actually app talks to app, need TCP port number to know what app is talking, for example web sever: 80, HTTPS: 443
+
+!!SIMPLE BROWSER IN pythhon:
+
+import socket
+mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)            #first create a socket then it is like bulit a end-point, it is like "build a phone"
+mysocket.connect(('data.pr4e.org', 80))                                 #it is like making a phone call to this end-point
+cmd = 'GET http://data.pr4e.org/page1.html HTTP1.0\r\n\r\n'.encode()    #send them in UTF-8 string
+mysocket.send(cmd)
+
+while True:
+  data = mysocket.recv(512)
+  if len(data) < 1:
+    break
+  print(data.decode().end='')
+
+mysocket.close()
+  
