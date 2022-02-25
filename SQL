@@ -1,0 +1,39 @@
+Structured Query Language
+is the language we use to issue commands to the database 
+  -create/insert
+  -Read/select
+  -update
+  -delete
+
+Relational Databases
+small projects: SQLite
+# it is like making a contract that tells database what ur data will be like, create
+CREATE TABLE Users(
+  id integer NOT NULL
+    PRIMARY KEY
+    AUTOINCREMENT,
+  name VARCHAR(128),
+  email VARCHAR(128)
+);
+INSERT INTO Users(name,email) VALUES('Mark', 'M@umich.edu')
+DELETE FROM Users WHERE email='M@umich.edu'
+UPDATE Users SET  name='Ceil' WHERE email='M@umich.edu'
+SELECT * FROM Users ORDER BY email
+SELECT * FROM Users ORDER BY name DESC
+
+ORM Object Relational Mapping : allows u to across database dialects
+python3 manage.py makemigrations  #
+python3 manage.py migrate         #apply migrations
+
+CRUD IN ORM
+U = User(name='Mark', email = 'M@umich.edu')
+U.save()
+User.objects.values()
+User.objects.filter(email='M@umich.edu').update(name='Ciel')
+User.objects.values().order_by('-name')
+User.objects.filter(email='M@umich.edu').delete()
+
+django
+model.py: between py code in user interface and the actual database
+
+MVC
