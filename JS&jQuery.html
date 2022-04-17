@@ -1,0 +1,28 @@
+<!-- // something about the "return flase" work in a tag:
+// for example the tag as below:
+
+// <a href="#" onclick="document.getElementById("stuff").innerHTML='BACK'; return false;">
+//   BACK
+// </a>
+
+// will stop your trying to reach the server and let JS handle it.(just to stay in the page!) -->
+
+<p>
+  <a href="#" onclick="add();return false;>more</a>
+</p>
+
+<ul id="the-list">
+     <li>First Item</li>
+</ul>
+
+<script>
+     counter = 1;
+     console.log(document.getElementById("the-list"))
+     function add(){
+          var x = document.createElement('li');
+          x.className = "list-item";
+          x.innerHTML = "the counter is "+counter;
+          document.getElementById("the-list").appendChild(x);
+     }
+</script>
+                 
